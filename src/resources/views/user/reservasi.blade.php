@@ -62,7 +62,7 @@
                         </div>
                         <div class="md:w-2/3">
                             <input class="form-input block w-full focus:bg-white border border-gray-300 px-2 py-1" id="fullname" name="fullname"
-                             type="text" value="{{$userLogin->name}}">
+                             type="text" value="{{ $userLogin->name ?? '' }}">
                             <p class="py-2 text-sm text-gray-600">Masukkan nama lengkap Anda (max. 100 karakter).</p>
                             @if($errors->has('fullname'))
                                 <div class="error py-2 text-sm text-red-600">{{ $errors->first('fullname') }}</div>
@@ -77,7 +77,7 @@
                             </label>
                         </div>
                         <div class="md:w-2/3">
-                            <input class="form-input block w-full focus:bg-white border border-gray-300 px-2 py-1" id="reserverid" name="reserverid" type="text" value="{{$userLogin->username}}">
+                            <input class="form-input block w-full focus:bg-white border border-gray-300 px-2 py-1" id="reserverid" name="reserverid" type="text" value="{{$userLogin->username ?? ''}}">
                             <p class="py-2 text-sm text-gray-600">Masukkan NRP atau NIP Anda.</p>
                             @if($errors->has('reserverid'))
                                 <div class="error py-2 text-sm text-red-600">{{ $errors->first('reserverid') }}</div>
@@ -92,7 +92,7 @@
                             </label>
                         </div>
                         <div class="md:w-2/3">
-                            <input class="form-input block w-full focus:bg-white border border-gray-300 px-2 py-1" id="phone" name="phone" type="text" value="{{$userLogin->phone}}">
+                            <input class="form-input block w-full focus:bg-white border border-gray-300 px-2 py-1" id="phone" name="phone" type="text" value="{{$userLogin->phone ?? ''}}">
                             <p class="py-2 text-sm text-gray-600">Masukkan nomor telepon Anda yang dapat dihubungi.</p>
                             @if($errors->has('phone'))
                                 <div class="error py-2 text-sm text-red-600">{{ $errors->first('phone') }}</div>
@@ -107,7 +107,7 @@
                             </label>
                         </div>
                         <div class="md:w-2/3">
-                            <input class="form-input block w-full focus:bg-white border border-gray-300 px-2 py-1" id="email" name="email" type="text" value="{{$userLogin->email}}">
+                            <input class="form-input block w-full focus:bg-white border border-gray-300 px-2 py-1" id="email" name="email" type="text" value="{{$userLogin->email ?? ''}}">
                             <p class="py-2 text-sm text-gray-600">Masukkan email Anda.</p>
                             @if($errors->has('email'))
                                 <div class="error py-2 text-sm text-red-600">{{ $errors->first('email') }}</div>

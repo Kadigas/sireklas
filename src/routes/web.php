@@ -56,7 +56,7 @@ Route::controller(StaffController::class)->group(function () {
 
 /*Make Reservation*/
 Route::controller(ReservasiController::class)->group(function () {
-    Route::middleware([IsLogin::class])->group(function () {
+    // Route::middleware([IsLogin::class])->group(function () {
         Route::get('/reservasi','stepOne')->name('reservasi');
         Route::post('/reservasipost', 'createOne')->name('postCreateStepOne');
         Route::get('/reservasi/detailPeminjaman', 'stepTwo')->name('detailPeminjaman');
@@ -67,7 +67,7 @@ Route::controller(ReservasiController::class)->group(function () {
         Route::get('/reservasi/detailKegiatan', 'stepThree')->name('detailKegiatan');
         Route::post('/reservasi/detailKegiatanpost', 'createThree')->name('postCreateStepThree');
         Route::get('/confirmed', 'confirm')->name('confirmed');
-    });
+    // });
     /*List Reservasi*/
     Route::get('/list-reservasi', 'listReservasi')->name('listReservasi');
     Route::get('/detailreservasi/{id}', 'detailReservasi')->name('detail-reservasi');

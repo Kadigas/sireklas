@@ -99,7 +99,7 @@
                                     <div class="flex justify-center mb-1">
                                         <p class="leading-relaxed font-light">Lantai {{ $ruangan->floornum }}</p>
                                     </div>
-                                    <video id="{{ $videoId }}" src="/video.ts" autoplay muted></video>
+                                    {{-- <video id="{{ $videoId }}" src="/video.ts" autoplay muted></video> --}}
                                     <img id="img{{ $rooms }}" class="h-60 rounded w-full object-scale-down object-center mb-2"
                                         src="/pictures/cameraoff.png" alt="Gambar Ruangan" style="display: block;">
                                     <input type="hidden" name="image" class="image-tag">
