@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ruangan;
 use App\Models\Staff;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class StaffController extends Controller
@@ -18,6 +20,12 @@ class StaffController extends Controller
         return view('user.staffdisplay', compact('staffs'));
     }
 
+    public function indexAdmin()
+    {
+        $staffs = Staff::all();
+        return view('admin.listStaff', compact('staffs'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +33,10 @@ class StaffController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all();
+        $ruangans = Ruangan::all();
+
+        return view('admin.createStaff', compact('users', 'ruangans'));
     }
 
     /**
@@ -36,7 +47,31 @@ class StaffController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'user_id' => 'required|exists:users,user_id',
+            'ruangan_id' => 'required|exists:ruangans,id',
+        ],
+        [
+            'user_id.required' => 'User ID tidak boleh kosong!',
+            'user_id.exists' => 'User ID tidak ditemukan!',
+            'ruangan_id.required' => 'Ruangan ID tidak boleh kosong!',
+            'ruangan_id.exists' => 'Ruangan ID tidak ditemukan!',
+        ]);
+    
+        // Save the staff data
+        $user = User::where('user_id', $request->user_id)->first();
+
+        if ($user->role !== 'admin') {
+            $user->role = 'admin';
+            $user->save();
+        }
+
+        Staff::create([
+            'user_id' => $request->user_id,
+            'ruangan_id' => $request->ruangan_id,
+        ]);
+    
+        return redirect()->route('admin-staff')->with('success', 'Staff berhasil ditambahkan!');
     }
 
     /**

@@ -27,6 +27,16 @@ class PreparedUserSeeder extends Seeder
         ]);
 
         User::create([
+            'user_id' => '5025201097',
+            'external_id' => '5025201097',
+            'name' => 'User Dummy',
+            'username' => '5025201000',
+            'email' => 'userdummy@mail.com',
+            'password' => Hash::make('12345678'),
+            'phone' => '081234567888',
+        ]);
+
+        User::create([
             'user_id' => '5025200999',
             'external_id' => '5025200999',
             'name' => 'Admin',

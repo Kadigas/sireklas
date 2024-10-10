@@ -86,6 +86,12 @@
 							</a>
 					</li>
 					<li>
+						<a class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-white hover:shadow-md {{ Request::is('admin/staff') ? 'active': '';}}" href="{{route('admin-staff')}}" >
+							<img style="width: 25px;" src="/pictures/icon/profil.png" alt="">
+							<span class="ml-4  font-medium">Staff</span>
+						</a>
+					</li>
+					<li>
 					<div class="p-0.5 rounded-full max-w-sm bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500"></div>
 						<div class="flex flex-col items-center w-full mt-2">
 							<a class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-white hover:shadow-md" href="#">
@@ -101,7 +107,6 @@
 					</li>
 					<li>
 					<a class="flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-white hover:shadow-md" href="#">
-							<img style="width: 25px;" src="/pictures/icon/profil.png" alt="">
 								<span class="ml-4 font-bold text-blue-500">{{{Auth::user()->name}}}</span>
 							</a>
 					</li>

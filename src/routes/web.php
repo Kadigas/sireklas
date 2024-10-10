@@ -114,6 +114,12 @@ Route::middleware([IsAdmin::class])->prefix('admin')->group(function() {
         // Route::get('report/month', 'month')->name('viewMonth');
         // Route::get('report/week', 'week')->name('viewWeek');
     });
+
+    Route::controller(StaffController::class)->group(function() {
+        Route::get('/staff', 'indexAdmin')->name('admin-staff');
+        Route::get('/staff/create', 'create')->name('createStaff');
+        Route::post('/staff/store', 'store')->name('storeStaff');
+    });
 });
 
 /*Predict People*/
